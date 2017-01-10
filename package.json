@@ -1,0 +1,20 @@
+{
+  "name": "zornfett",
+  "version": "0.0.0",
+  "description": "project001 for higherdotteam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git repository: (git://github.com/zornfett/higherdotteam001.git)"
+  },
+  "keywords": [
+    "higher",
+    "team",
+    "001"
+  ],
+  "author": "Rob Bartholme",
+  "license": "BSD-2-Clause"
+}
