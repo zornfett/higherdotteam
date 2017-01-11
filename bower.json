@@ -1,0 +1,25 @@
+{
+  "name": "zornfett",
+  "description": "project001 for higherdotteam",
+  "main": "index.js",
+  "authors": [
+    "Rob Bartholme"
+  ],
+  "license": "BSD-2-Clause",
+  "keywords": [
+    "higher",
+    "team",
+    "001"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

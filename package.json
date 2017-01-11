@@ -16,5 +16,14 @@
     "001"
   ],
   "author": "Rob Bartholme",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-rename": "~1.2.2",
+    "gulp-concat": "~2.6.1",
+    "gulp-uglify": "~2.0.0",
+    "gulp-sass": "~3.1.0",
+    "jshint": "~2.9.4",
+    "gulp-jshint": "~2.0.4"
+  }
 }
