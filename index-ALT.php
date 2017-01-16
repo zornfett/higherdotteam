@@ -1,9 +1,13 @@
-<?php
-$connector = mysql_connect("localhost", "root", "root") or die("Unable to connect"); 
-$results = mysql_select_db("dummybase1") or die("Unable to connect"); 
-$data = mysql_query("SELECT id_number,born_date,start_date FROM employees LIMIT 20"); // id_number, born_date, start_date LIMIT 20 / $data = mysql_query("SELECT * FROM employees");
-?>
 
+<?php
+ $username = "root";
+ $password = "root";
+ $host = "localhost";
+ $connector = mysql_connect($host, $username, $password)
+    or die("Unable to connect");
+ $selected = mysql_select_db("employees", $connector)
+    or die("Unable to connect");
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -50,7 +54,7 @@ $data = mysql_query("SELECT id_number,born_date,start_date FROM employees LIMIT 
 					</button>
 					<a class="navbar-brand" href="#">higherdotteam &mdash; proj001</a>
 				</div>
-<!-- 				<div id="navbar" class="navbar-collapse collapse">
+				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">Dashboard</a></li>
 						<li><a href="#">Settings</a></li>
@@ -60,7 +64,7 @@ $data = mysql_query("SELECT id_number,born_date,start_date FROM employees LIMIT 
 					<form class="navbar-form navbar-right">
 						<input type="text" class="form-control" placeholder="Search...">
 					</form>
-				</div> -->
+				</div>
 			</div>
 		</nav>
 
@@ -83,27 +87,47 @@ $data = mysql_query("SELECT id_number,born_date,start_date FROM employees LIMIT 
 							<h4>Label</h4>
 							<span class="text-muted">Something else</span>
 						</div>
+						<div class="col-xs-6 col-sm-3 placeholder">
+							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+							<h4>Label</h4>
+							<span class="text-muted">Something else</span>
+						</div>
+						<div class="col-xs-6 col-sm-3 placeholder">
+							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+							<h4>Label</h4>
+							<span class="text-muted">Something else</span>
+						</div>
+						<div class="col-xs-6 col-sm-3 placeholder">
+							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+							<h4>Label</h4>
+							<span class="text-muted">Something else</span>
+						</div>
 					</div> -->
 
+<?php
+//execute the SQL query and return records
+$result = mysql_query("SELECT * FROM alte_brand");
+?>
 					<h2 class="sub-header">Section title</h2>
 					<div class="table-responsive">
 						<table class="table table-striped">
 							<thead>
 								<tr>
-									<th>Arbitrary ID</th>
-									<th>Birthdate</th>
-									<th>Startdate</th>
-									<!-- <th>Salary</th> -->
+									<th>Employee</th>
+									<th>Department</th>
+									<th>Title</th>
+									<th>Salary</th>
 								</tr>
 							</thead>
 							<tbody>
 <?php
-while ($row = mysql_fetch_assoc($data)) {
+while ($row = mysql_fetch_assoc($result)) {
 echo
 "<tr>
-	<td>{$row['id_number']}</td>
-	<td>{$row['born_date']}</td>
-	<td>{$row['start_date']}</td>
+	<td>{$row['employees']}</td>
+	<td>{$row['departments']}</td>
+	<td>{$row['titles']}</td>
+	<td>{$row['salaries']}</td>	
 </tr>";
 }
 ?>
