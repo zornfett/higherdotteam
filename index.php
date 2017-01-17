@@ -1,8 +1,4 @@
-<?php
-$connector = mysql_connect("localhost", "root", "root") or die("Unable to connect"); 
-$results = mysql_select_db("dummybase1") or die("Unable to connect"); 
-$data = mysql_query("SELECT id_number,born_date,start_date FROM employees LIMIT 20"); // id_number, born_date, start_date LIMIT 20 / $data = mysql_query("SELECT * FROM employees");
-?>
+<?php include 'incl/db-header.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +11,7 @@ $data = mysql_query("SELECT id_number,born_date,start_date FROM employees LIMIT 
 		<meta name="author" content="">
 		<link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-		<title>DT for BS - from GENERATED source, v.1x</title>
+		<title>RBB dashboard</title>
 
 		<!-- Bootstrap core CSS -->
 		<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -50,17 +46,16 @@ $data = mysql_query("SELECT id_number,born_date,start_date FROM employees LIMIT 
 					</button>
 					<a class="navbar-brand" href="#">higherdotteam &mdash; proj001</a>
 				</div>
-<!-- 				<div id="navbar" class="navbar-collapse collapse">
+<!-- 				
+				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#">Dashboard</a></li>
-						<li><a href="#">Settings</a></li>
-						<li><a href="#">Profile</a></li>
-						<li><a href="#">Help</a></li>
 					</ul>
 					<form class="navbar-form navbar-right">
 						<input type="text" class="form-control" placeholder="Search...">
 					</form>
-				</div> -->
+				</div>
+-->
 			</div>
 		</nav>
 
@@ -68,51 +63,41 @@ $data = mysql_query("SELECT id_number,born_date,start_date FROM employees LIMIT 
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebar">
 					<ul class="nav nav-sidebar">
-						<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
 						<li><a href="#">variousNAVitems</a></li>
-<!-- 						<li><a href="#">Analytics</a></li> -->
+<!-- 						
+						<li><a href="#">Analytics</a></li>
+-->
 					</ul>
 				</div>
 				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					<h1 class="page-header">Dashboard for XXX</h1>
+					<h1 class="page-header">Dashboard for RBB via mysql/PHP</h1>
 
-<!-- 				CIRCLE THINGERS	
-					<div class="row placeholders">
-						<div class="col-xs-6 col-sm-3 placeholder">
-							<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-							<h4>Label</h4>
-							<span class="text-muted">Something else</span>
-						</div>
-					</div> -->
-
-					<h2 class="sub-header">Section title</h2>
+					<div id="pie-chart-letters" style="width: 450px; height: 250px;"></div>
+<!-- 
+					<div id="pie-chart-sex" style="width: 450px; height: 250px;"></div>
+					<div id="pie-chart-years" style="width: 450px; height: 250px;"></div>
+ -->
+					<h2 class="sub-header">Employee Snoop</h2>
 					<div class="table-responsive">
 						<table class="table table-striped">
 							<thead>
 								<tr>
 									<th>Arbitrary ID</th>
-									<th>Birthdate</th>
-									<th>Startdate</th>
-									<!-- <th>Salary</th> -->
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Sex</th>
+									<th>Birth Date</th>
+									<th>Start Date</th>
 								</tr>
 							</thead>
 							<tbody>
-<?php
-while ($row = mysql_fetch_assoc($data)) {
-echo
-"<tr>
-	<td>{$row['id_number']}</td>
-	<td>{$row['born_date']}</td>
-	<td>{$row['start_date']}</td>
-</tr>";
-}
-?>
-
-
+								<?php
+									include 'incl/data-row.php'
+								?>
 							</tbody>
 						</table>
 					</div>
-<?php mysql_close($connector); ?>
+					<?php mysql_close($connector); ?>
 				</div>
 			</div>
 		</div>
@@ -120,13 +105,14 @@ echo
 		<!-- Bootstrap core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"><\/script>')</script>
-		<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script type="text/javascript" src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"><\/script>')</script>
+		<script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 		<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-		<script src="http://getbootstrap.com/assets/js/vendor/holder.min.js"></script>
+		<script type="text/javascript" src="http://getbootstrap.com/assets/js/vendor/holder.min.js"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
-		<script src="js/rbb-custom.js"></script>
+		<script type="text/javascript" src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript" src="js/rbb-custom.js"></script>
 	</body>
 </html>

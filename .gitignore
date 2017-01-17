@@ -3,3 +3,4 @@ node_modules
 bower_components/
 .bash_profile
 .DS_Store
+swipe-db-for-js.php
